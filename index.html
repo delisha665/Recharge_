@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RECHARGE — App Demo</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+        <div class="logo">
+            <div class="logo-mark">R</div>
+            <span>RECHARGE</span>
+        </div>
+
+        <button class="icon-btn" onclick="showNotification()">⌁</button>
+    </header>
+
+
+    <!-- HOME SCREEN -->
+    <main id="home" class="screen active">
+
+        <div class="greeting">
+            <p>GOOD MORNING</p>
+            <h1>Ready to<br><span>RECHARGE?</span></h1>
+        </div>
+
+        <!-- MAIN POD CARD -->
+        <section class="main-card">
+
+            <div class="card-top">
+                <div>
+                    <small>NEAREST POD</small>
+                    <h2>Central Hub</h2>
+                </div>
+
+                <div class="live">
+                    <i></i> LIVE
+                </div>
+            </div>
+
+            <div class="pod-visual">
+                <div class="pod-ring">
+                    <div class="pod-letter">R</div>
+                </div>
+
+                <div class="pod-info">
+                    <strong>120 m</strong>
+                    <span>away from you</span>
+                </div>
+            </div>
+
+            <div class="slot-row">
+                <span>AVAILABLE SLOTS</span>
+                <strong>4 / 6</strong>
+            </div>
+
+            <button class="primary-btn" onclick="openPod()">
+                OPEN POD <span>→</span>
+            </button>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+        <section>
+            <div class="section-title">
+                <span>QUICK ACTIONS</span>
+            </div>
+
+            <div class="quick-grid">
+
+                <button onclick="openPods()" class="quick-card">
+                    <div class="quick-icon">⌖</div>
+                    <strong>Find a Pod</strong>
+                    <small>Nearby locations</small>
+                </button>
+
+                <button onclick="openPod()" class="quick-card">
+                    <div class="quick-icon">⚡</div>
+                    <strong>Recharge</strong>
+                    <small>Start instantly</small>
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- ACTIVITY -->
+        <section class="activity">
+
+            <div class="section-title">
+                <span>RECENT ACTIVITY</span>
+                <button onclick="openHistory()">VIEW ALL</button>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-icon">⚡</div>
+
+                <div>
+                    <strong>Central Hub</strong>
+                    <p>Recharge completed</p>
+                </div>
+
+                <div class="activity-right">
+                    <strong>+20</strong>
+                    <small>points</small>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-icon">♻</div>
+
+                <div>
+                    <strong>Tech Quarter</strong>
+                    <p>Pod visit</p>
+                </div>
+
+                <div class="activity-right">
+                    <strong>Yesterday</strong>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PODS SCREEN -->
+    <main id="pods" class="screen">
+
+        <div class="page-heading">
+            <p>RECHARGE NETWORK</p>
+            <h1>Find a <span>Pod.</span></h1>
+        </div>
+
+        <div class="search">
+            <span>⌕</span>
+            <input type="text" placeholder="Search location...">
+        </div>
+
+        <!-- FICTIONAL MAP -->
+        <div class="map">
+
+            <div class="district d1">NORTH GATE</div>
+            <div class="district d2">TECH QUARTER</div>
+            <div class="district d3">MARKET</div>
+            <div class="district d4">GREEN PARK</div>
+            <div class="district d5">CENTRAL HUB</div>
+            <div class="district d6">RIVERSIDE</div>
+
+            <div class="road road1"></div>
+            <div class="road road2"></div>
+            <div class="road road3"></div>
+            <div class="river"></div>
+
+            <button class="map-pod p1" onclick="selectPod('North Gate')">R</button>
+            <button class="map-pod p2" onclick="selectPod('Tech Quarter')">R</button>
+            <button class="map-pod p3" onclick="selectPod('Market District')">R</button>
+            <button class="map-pod p4" onclick="selectPod('Green Park')">R</button>
+            <button class="map-pod p5" onclick="selectPod('Central Hub')">R</button>
+            <button class="map-pod p6" onclick="selectPod('Riverside')">R</button>
+
+            <div class="you">
+                <i></i>
+                YOU
+            </div>
+
+        </div>
+
+
+        <div class="nearby-title">
+            <span>NEARBY PODS</span>
+            <small>6 LOCATIONS</small>
+        </div>
+
+        <button class="location-card" onclick="selectPod('Central Hub')">
+            <div class="location-icon">R</div>
+            <div>
+                <strong>Central Hub</strong>
+                <p>120 m · 4 slots available</p>
+            </div>
+            <span>→</span>
+        </button>
+
+        <button class="location-card" onclick="selectPod('Tech Quarter')">
+            <div class="location-icon">R</div>
+            <div>
+                <strong>Tech Quarter</strong>
+                <p>450 m · 2 slots available</p>
+            </div>
+            <span>→</span>
+        </button>
+
+        <button class="location-card" onclick="selectPod('Market District')">
+            <div class="location-icon">R</div>
+            <div>
+                <strong>Market District</strong>
+                <p>700 m · 6 slots available</p>
+            </div>
+            <span>→</span>
+        </button>
+
+    </main>
+
+
+    <!-- RECHARGE SCREEN -->
+    <main id="recharge" class="screen">
+
+        <button class="back-btn" onclick="goHome()">← Back</button>
+
+        <div class="recharge-header">
+            <div class="big-pod">R</div>
+
+            <p>RECHARGE POD</p>
+            <h1 id="selectedPod">Central Hub</h1>
+
+            <div class="available">
+                <i></i> AVAILABLE NOW
+            </div>
+        </div>
+
+        <div class="recharge-box">
+
+            <div class="slot-visual">
+                <div class="slot active-slot">01</div>
+                <div class="slot active-slot">02</div>
+                <div class="slot empty-slot">03</div>
+                <div class="slot active-slot">04</div>
+                <div class="slot empty-slot">05</div>
+                <div class="slot empty-slot">06</div>
+            </div>
+
+            <div class="recharge-stats">
+                <div>
+                    <small>AVAILABLE</small>
+                    <strong>4 slots</strong>
+                </div>
+
+                <div>
+                    <small>EST. TIME</small>
+                    <strong>15 min</strong>
+                </div>
+
+                <div>
+                    <small>IMPACT</small>
+                    <strong>1.2 kg</strong>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="start-btn" onclick="startRecharge()">
+            START RECHARGE
+            <span>⚡</span>
+        </button>
+
+        <p class="demo-note">
+            DEMO MODE · No real transaction will occur
+        </p>
+
+    </main>
+
+
+    <!-- HISTORY SCREEN -->
+    <main id="history" class="screen">
+
+        <div class="page-heading">
+            <p>YOUR JOURNEY</p>
+            <h1>Activity <span>History.</span></h1>
+        </div>
+
+        <div class="points-card">
+            <small>TOTAL RECHARGE POINTS</small>
+            <strong>248</strong>
+            <p>↑ 32 points this month</p>
+        </div>
+
+        <div class="history-list">
+
+            <div class="history-item">
+                <div class="history-icon">⚡</div>
+                <div>
+                    <strong>Central Hub</strong>
+                    <p>Recharge completed</p>
+                </div>
+                <span>+20</span>
+            </div>
+
+            <div class="history-item">
+                <div class="history-icon">⚡</div>
+                <div>
+                    <strong>Green Park</strong>
+                    <p>Recharge completed</p>
+                </div>
+                <span>+20</span>
+            </div>
+
+            <div class="history-item">
+                <div class="history-icon">♻</div>
+                <div>
+                    <strong>Tech Quarter</strong>
+                    <p>Pod visit</p>
+                </div>
+                <span>+10</span>
+            </div>
+
+            <div class="history-item">
+                <div class="history-icon">⚡</div>
+                <div>
+                    <strong>Riverside</strong>
+                    <p>Recharge completed</p>
+                </div>
+                <span>+20</span>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- PROFILE SCREEN -->
+    <main id="profile" class="screen">
+
+        <div class="profile-head">
+
+            <div class="avatar">A</div>
+
+            <p>WELCOME BACK</p>
+            <h1>Alex</h1>
+
+        </div>
+
+        <div class="profile-card">
+            <div>
+                <small>RECHARGE LEVEL</small>
+                <strong>LEVEL 04</strong>
+            </div>
+
+            <div class="level-bar">
+                <span></span>
+            </div>
+
+            <p>248 / 300 points to Level 05</p>
+        </div>
+
+        <div class="settings">
+
+            <button>
+                <span>◉</span>
+                Account
+                <b>→</b>
+            </button>
+
+            <button>
+                <span>♧</span>
+                Notifications
+                <b>→</b>
+            </button>
+
+            <button>
+                <span>?</span>
+                Help & Support
+                <b>→</b>
+            </button>
+
+            <button>
+                <span>⌁</span>
+                About RECHARGE
+                <b>→</b>
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+
+        <button class="nav-item active" onclick="navigate('home', this)">
+            <span>⌂</span>
+            <small>Home</small>
+        </button>
+
+        <button class="nav-item" onclick="navigate('pods', this)">
+            <span>⌖</span>
+            <small>Pods</small>
+        </button>
+
+        <button class="nav-item recharge-nav" onclick="openPod()">
+            <span>⚡</span>
+        </button>
+
+        <button class="nav-item" onclick="navigate('history', this)">
+            <span>◷</span>
+            <small>History</small>
+        </button>
+
+        <button class="nav-item" onclick="navigate('profile', this)">
+            <span>○</span>
+            <small>You</small>
+        </button>
+
+    </nav>
+
+</div>
+
+
+<!-- SUCCESS POPUP -->
+<div class="popup" id="popup">
+
+    <div class="popup-box">
+
+        <div class="success-icon">✓</div>
+
+        <p>RECHARGE STARTED</p>
+        <h2>You're all set.</h2>
+
+        <div class="popup-line">
+            <span>Central Hub</span>
+            <strong>15 min</strong>
+        </div>
+
+        <button onclick="closePopup()">DONE</button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
